@@ -6,6 +6,7 @@ import com.darigan.lil.learningspring.business.RoomReservation;
 import com.darigan.lil.learningspring.data.Guest;
 import com.darigan.lil.learningspring.data.Room;
 import com.darigan.lil.learningspring.util.DateUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -25,23 +26,24 @@ public class WebServiceController {
         this.guestService = guestService;
     }
 
-    @RequestMapping(path = "/reservations", method = RequestMethod.GET)
+    @GetMapping("/reservations")
     public List<RoomReservation> getReservations(@RequestParam(value = "date", required = false) String dateString) {
         Date date = dateUtils.createDateFromDateString(dateString);
         return this.reservationService.getRoomReservationsForDate(date);
     }
 
-    @RequestMapping(path = "/rooms", method = RequestMethod.GET)
+    @GetMapping("/rooms")
     public List<Room> getRooms() {
         return this.reservationService.getRooms();
     }
 
-    @RequestMapping(path = "/guests", method = RequestMethod.GET)
+    @GetMapping("/guests")
     public List<Guest> getGuests() {
         return guestService.getAllGuests();
     }
 
-    @RequestMapping(path = "/guests", method = RequestMethod.POST)
+    @PostMapping("/guests")
+    @ResponseStatus(HttpStatus.CREATED)
     public void addGuest(@RequestBody Guest guest) {
         System.out.println(guest);
         guestService.addGuest(guest);

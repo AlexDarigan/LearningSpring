@@ -4,6 +4,7 @@ import com.darigan.lil.learningspring.business.GuestService;
 import com.darigan.lil.learningspring.data.Guest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,7 +19,7 @@ public class GuestController {
         this.guestService = guestService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping()
     public String getGuests(Model model) {
         List<Guest> guests = guestService.getAllGuests();
         model.addAttribute("guests", guests);
