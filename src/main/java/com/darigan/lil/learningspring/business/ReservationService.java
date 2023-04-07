@@ -38,7 +38,7 @@ public class ReservationService {
             Guest guest = this.guestRepository.findById(reservation.getGuestId()).get();
             roomReservation.setFirstName(guest.getFirstName());
             roomReservation.setLastName(guest.getLastName());
-            roomReservation.setGuestId(guest.getId());
+            roomReservation.setGuestId(guest.getGuestId());
         });
         List<RoomReservation> roomReservations = new ArrayList<>();
         for (Long id : roomReservationMap.keySet()) {
