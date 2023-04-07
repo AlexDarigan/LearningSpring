@@ -1,58 +1,14 @@
 package com.darigan.lil.learningspring.data;
 
+import lombok.Data;
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+@Data
 public class Reservation {
-    @Id
-    private long reservationId;
-
+    @Id private long reservationId;
     private long roomId;
-
     private long guestId;
-
     private Date resDate;
-
-    public long getReservationId() {
-        return reservationId;
-    }
-
-    public void setReservationId(long reservationId) {
-        this.reservationId = reservationId;
-    }
-
-    public long getRoomId() {
-        return roomId;
-    }
-
-    public void setRoomId(long roomId) {
-        this.roomId = roomId;
-    }
-
-    public long getGuestId() {
-        return guestId;
-    }
-
-    public void setGuestId(long guestId) {
-        this.guestId = guestId;
-    }
-
-    public Date getResDate() {
-        return resDate;
-    }
-
-    public void setResDate(Date resDate) {
-        this.resDate = resDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Reservation{" +
-                "reservationId=" + reservationId +
-                ", roomId=" + roomId +
-                ", guestId=" + guestId +
-                ", date=" + resDate +
-                '}';
-    }
 }

@@ -6,6 +6,7 @@ import com.darigan.lil.learningspring.business.RoomReservation;
 import com.darigan.lil.learningspring.data.Guest;
 import com.darigan.lil.learningspring.data.Room;
 import com.darigan.lil.learningspring.util.DateUtils;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,17 +15,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
 public class WebServiceController {
 
     private final DateUtils dateUtils;
     private final ReservationService reservationService;
     private final GuestService guestService;
 
-    public WebServiceController(DateUtils dateUtils, ReservationService reservationService, GuestService guestService) {
-        this.dateUtils = dateUtils;
-        this.reservationService = reservationService;
-        this.guestService = guestService;
-    }
 
     @GetMapping("/reservations")
     public List<RoomReservation> getReservations(@RequestParam(value = "date", required = false) String dateString) {

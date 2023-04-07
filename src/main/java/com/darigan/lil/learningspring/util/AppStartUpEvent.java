@@ -1,6 +1,7 @@
 package com.darigan.lil.learningspring.util;
 
 import com.darigan.lil.learningspring.data.*;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -8,20 +9,13 @@ import org.springframework.stereotype.Component;
 import java.sql.Date;
 
 @Component
+@AllArgsConstructor
 public class AppStartUpEvent implements ApplicationListener<ApplicationStartedEvent> {
 
     private final RoomRepository roomRepository;
     private final GuestRepository guestRepository;
     private final ReservationRepository reservationRepository;
-
-    public AppStartUpEvent(
-            RoomRepository roomRepository,
-            GuestRepository guestRepository,
-            ReservationRepository reservationRepository) {
-        this.roomRepository = roomRepository;
-        this.guestRepository = guestRepository;
-        this.reservationRepository = reservationRepository;
-    }
+    
     @Override
     public void onApplicationEvent(ApplicationStartedEvent event) {
         Iterable<Room> rooms = roomRepository.findAll();
