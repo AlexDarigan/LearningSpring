@@ -21,4 +21,8 @@ public class GuestService {
         List<Guest> guests = (List<Guest>) this.guestRepository.findAll();
         return guests;
     }
+
+    public void addGuest(Guest guest) {
+        this.guestRepository.save(guest);
+    }
 }
