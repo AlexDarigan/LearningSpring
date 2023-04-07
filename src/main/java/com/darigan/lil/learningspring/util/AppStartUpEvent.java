@@ -1,9 +1,6 @@
 package com.darigan.lil.learningspring.util;
 
-import com.darigan.lil.learningspring.data.Guest;
-import com.darigan.lil.learningspring.data.GuestRepository;
-import com.darigan.lil.learningspring.data.Room;
-import com.darigan.lil.learningspring.data.RoomRepository;
+import com.darigan.lil.learningspring.data.*;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
@@ -13,10 +10,15 @@ public class AppStartUpEvent implements ApplicationListener<ApplicationStartedEv
 
     private final RoomRepository roomRepository;
     private final GuestRepository guestRepository;
+    private final ReservationRepository reservationRepository;
 
-    public AppStartUpEvent(RoomRepository roomRepository, GuestRepository guestRepository) {
+    public AppStartUpEvent(
+            RoomRepository roomRepository,
+            GuestRepository guestRepository,
+            ReservationRepository reservationRepository) {
         this.roomRepository = roomRepository;
         this.guestRepository = guestRepository;
+        this.reservationRepository = reservationRepository;
     }
     @Override
     public void onApplicationEvent(ApplicationStartedEvent event) {
@@ -24,5 +26,7 @@ public class AppStartUpEvent implements ApplicationListener<ApplicationStartedEv
         rooms.forEach(System.out::println);
         Iterable<Guest> guests = guestRepository.findAll();
         guests.forEach(System.out::println);
+        Iterable<Reservation> reservations = reservationRepository.findAll();
+        reservations.forEach(System.out::println);
     }
 }
