@@ -58,5 +58,9 @@ public class ReservationService {
         });
         return roomReservations;
     }
+
+    public List<Room> getRooms() {
+        return (List<Room>) this.roomRepository.findAll();
+    }
 }
 
