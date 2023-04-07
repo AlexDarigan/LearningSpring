@@ -5,6 +5,8 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+
 @Component
 public class AppStartUpEvent implements ApplicationListener<ApplicationStartedEvent> {
 
@@ -28,5 +30,8 @@ public class AppStartUpEvent implements ApplicationListener<ApplicationStartedEv
         guests.forEach(System.out::println);
         Iterable<Reservation> reservations = reservationRepository.findAll();
         reservations.forEach(System.out::println);
+        Date date = Date.valueOf("2022-01-01");
+        Iterable<Reservation> onDate = reservationRepository.findAllByDate(date);
+        onDate.forEach(System.out::println);
     }
 }
