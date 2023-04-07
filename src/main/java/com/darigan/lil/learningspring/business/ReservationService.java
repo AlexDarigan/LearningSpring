@@ -4,22 +4,15 @@ import java.util.*;
 import com.darigan.lil.learningspring.data.RoomRepository;
 import com.darigan.lil.learningspring.data.ReservationRepository;
 import com.darigan.lil.learningspring.data.*;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class ReservationService {
     private final RoomRepository roomRepository;
     private final GuestRepository guestRepository;
     private final ReservationRepository reservationRepository;
-
-    public ReservationService(
-            RoomRepository roomRepository,
-            GuestRepository guestRepository,
-            ReservationRepository reservationRepository) {
-        this.roomRepository = roomRepository;
-        this.guestRepository = guestRepository;
-        this.reservationRepository = reservationRepository;
-    }
 
     public List<RoomReservation> getRoomReservationsForDate(Date date) {
         Iterable<Room> rooms = this.roomRepository.findAll();

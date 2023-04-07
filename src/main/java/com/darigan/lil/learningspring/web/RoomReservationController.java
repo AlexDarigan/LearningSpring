@@ -3,6 +3,7 @@ package com.darigan.lil.learningspring.web;
 import com.darigan.lil.learningspring.business.ReservationService;
 import com.darigan.lil.learningspring.business.RoomReservation;
 import com.darigan.lil.learningspring.util.DateUtils;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,15 +16,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/reservations")
+@AllArgsConstructor
 public class RoomReservationController {
-
     private final DateUtils dateUtils;
     private final ReservationService reservationService;
-
-    public RoomReservationController(DateUtils dateUtils, ReservationService reservationService) {
-        this.dateUtils = dateUtils;
-        this.reservationService = reservationService;
-    }
 
     @GetMapping()
     public String getReservations(@RequestParam(value="date", required = false) String dateString, Model model) {
