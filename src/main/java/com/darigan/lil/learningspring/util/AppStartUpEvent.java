@@ -31,7 +31,7 @@ public class AppStartUpEvent implements ApplicationListener<ApplicationStartedEv
         Iterable<Reservation> reservations = reservationRepository.findAll();
         reservations.forEach(System.out::println);
         Date date = Date.valueOf("2022-01-01");
-        Iterable<Reservation> onDate = reservationRepository.findAllByDate(date);
+        Iterable<Reservation> onDate = reservationRepository.findAllByResDate(date);
         onDate.forEach(System.out::println);
     }
 }
