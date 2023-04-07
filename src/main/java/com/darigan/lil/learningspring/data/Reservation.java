@@ -1,16 +1,11 @@
 package com.darigan.lil.learningspring.data;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-
+import lombok.Data;
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Getter
-@Setter
-@ToString
+@Data
 public class Reservation {
     @Id private long reservationId;
     private long roomId;

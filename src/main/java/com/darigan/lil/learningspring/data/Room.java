@@ -1,13 +1,10 @@
 package com.darigan.lil.learningspring.data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.Data;
+
 
 import javax.persistence.*;
 @Entity
-@Setter
-@Getter
-@ToString
+@Data
 public class Room {
     @Id private long roomId;
     private String name;
