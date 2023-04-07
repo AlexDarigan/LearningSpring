@@ -1,11 +1,9 @@
 package com.darigan.lil.learningspring.business;
 
 import java.util.*;
-
 import com.darigan.lil.learningspring.data.RoomRepository;
 import com.darigan.lil.learningspring.data.ReservationRepository;
 import com.darigan.lil.learningspring.data.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,7 +12,6 @@ public class ReservationService {
     private final GuestRepository guestRepository;
     private final ReservationRepository reservationRepository;
 
-    @Autowired
     public ReservationService(
             RoomRepository roomRepository,
             GuestRepository guestRepository,
