@@ -1,0 +1,10 @@
+logging:
+  level:
+    # We turned this off to double-check we're running the correct profile
+    org.springframework.jdbc.datasource.init.ScriptUtils: off
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
