@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("v1/")
 @AllArgsConstructor
-public class WebServiceController {
+public class PokemonController {
 
     private final PokemonService pokemonService;
 
