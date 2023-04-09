@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Guest {
-    @Id private long guestId;
+    @Id private int guestId;
     private String firstName;
     private String lastName;
     private String emailAddress;

@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Entity
 @Data
 public class Room {
-    @Id private long roomId;
+    @Id private int roomId;
     private String name;
     private String roomNumber;
     private String bedInfo;
