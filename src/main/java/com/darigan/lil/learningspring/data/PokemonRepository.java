@@ -2,5 +2,6 @@ package com.darigan.lil.learningspring.data;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface GuestRepository extends CrudRepository<Guest, Integer> {
+public interface PokemonRepository extends CrudRepository<Pokemon, Integer> {
+
 }
