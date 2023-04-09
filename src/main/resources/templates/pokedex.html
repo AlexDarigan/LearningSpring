@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokedex</title>
+</head>
+<body>
+<h1>Welcome to Pokedex</h1>
+<table>
+  <tr>
+    <td>Number</td>
+    <td>Name</td>
+    <td>Type1</td>
+    <td>Type2</td>
+    <td>Stage</td>
+  </tr>
+  <tr th:each="pkmn: ${pkmns}">
+    <td th:text="${pkmn.pkmnId}">Number</td>
+    <td th:text="${pkmn.pkmnName}">Name</td>
+    <td th:text="${pkmn.type1}">Type1</td>
+    <td th:text="${pkmn.type2}">Type2</td>
+    <td th:text="${pkmn.stage}">Stage</td>
+  </tr>
+</table>
+</body>
+</html>

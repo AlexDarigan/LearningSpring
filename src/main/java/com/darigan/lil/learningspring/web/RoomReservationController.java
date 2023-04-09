@@ -28,4 +28,5 @@ public class RoomReservationController {
         model.addAttribute("roomReservations", roomReservations);
         return "roomres";
     }
+
 }
