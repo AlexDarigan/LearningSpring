@@ -1,10 +1,10 @@
-package com.darigan.lil.learningspring.business;
+package com.darigan.lil.learningspring.services;
 
-import com.darigan.lil.learningspring.data.Pokemon;
-import com.darigan.lil.learningspring.data.PokemonRepository;
+import com.darigan.lil.learningspring.models.Pokemon;
+import com.darigan.lil.learningspring.repositories.PokemonRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.*;
+import java.util.List;
 @Service
 @AllArgsConstructor
 public class PokemonService {
