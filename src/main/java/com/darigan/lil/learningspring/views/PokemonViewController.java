@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/pokemon")
 @AllArgsConstructor
-public class PokemonController {
+public class PokemonViewController {
 
     private final PokemonService pokemonService;
 

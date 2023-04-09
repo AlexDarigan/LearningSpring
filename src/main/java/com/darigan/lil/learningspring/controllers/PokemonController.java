@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("v1/")
 @AllArgsConstructor
-public class WebServiceController {
+public class PokemonController {
 
     private final PokemonService pokemonService;
 
