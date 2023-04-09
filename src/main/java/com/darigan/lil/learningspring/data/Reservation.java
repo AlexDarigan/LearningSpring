@@ -7,8 +7,8 @@ import java.sql.Date;
 @Entity
 @Data
 public class Reservation {
-    @Id private long reservationId;
-    private long roomId;
-    private long guestId;
+    @Id private int reservationId;
+    private int roomId;
+    private int guestId;
     private Date resDate;
 }

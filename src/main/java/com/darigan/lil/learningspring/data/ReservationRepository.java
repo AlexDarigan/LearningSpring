@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.sql.Date;
 
-public interface ReservationRepository extends CrudRepository<Reservation, Long> {
+public interface ReservationRepository extends CrudRepository<Reservation, Integer> {
 
     Iterable<Reservation> findAllByResDate(Date resDate);
 }
