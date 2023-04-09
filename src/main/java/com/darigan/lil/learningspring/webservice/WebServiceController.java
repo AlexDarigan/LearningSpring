@@ -1,9 +1,11 @@
 package com.darigan.lil.learningspring.webservice;
 
 import com.darigan.lil.learningspring.business.GuestService;
+import com.darigan.lil.learningspring.business.PokemonService;
 import com.darigan.lil.learningspring.business.ReservationService;
 import com.darigan.lil.learningspring.business.RoomReservation;
 import com.darigan.lil.learningspring.data.Guest;
+import com.darigan.lil.learningspring.data.Pokemon;
 import com.darigan.lil.learningspring.data.Room;
 import com.darigan.lil.learningspring.util.DateUtils;
 import lombok.AllArgsConstructor;
@@ -22,12 +24,16 @@ public class WebServiceController {
     private final ReservationService reservationService;
     private final GuestService guestService;
 
+    private final PokemonService pokemonService;
 
     @GetMapping("/reservations")
     public List<RoomReservation> getReservations(@RequestParam(value = "date", required = false) String dateString) {
         Date date = dateUtils.createDateFromDateString(dateString);
         return this.reservationService.getRoomReservationsForDate(date);
     }
+
+    @GetMapping("/pokemon")
+    public List<Pokemon> getPokemon() { return this.pokemonService.getPokemon(); }
 
     @GetMapping("/rooms")
     public List<Room> getRooms() {
