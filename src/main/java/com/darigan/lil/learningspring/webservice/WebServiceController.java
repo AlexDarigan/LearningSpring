@@ -32,8 +32,18 @@ public class WebServiceController {
         return this.reservationService.getRoomReservationsForDate(date);
     }
 
+    // PostMapping Pokemon(body), insert pokemon
+    // GetMapping with filters (for every value, if not null, filter)
+
     @GetMapping("/pokemon")
     public List<Pokemon> getPokemon() { return this.pokemonService.getPokemon(); }
+
+    @PostMapping("/pokemon")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addPokemon(@RequestBody Pokemon pokemon) {
+        System.out.println(pokemon);
+        pokemonService.addPokemon(pokemon);
+    }
 
     @GetMapping("/rooms")
     public List<Room> getRooms() {
